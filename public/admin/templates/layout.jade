@@ -1,0 +1,38 @@
+doctype html
+html(data-ng-app='tsccms' data-ng-controller='AppCtrl')
+  head
+    meta(charset="utf-8")  
+    title= title
+    meta(name="description" content="")
+    //Mobile-friendly viewport
+    meta(name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=1")
+    block beforeHeadStyle
+    link(rel='stylesheet', href='/bower_components/materialize/dist/css/materialize.min.css')
+    link(rel='stylesheet', href='/css/main.css')
+    block afterHeadStyle
+ body.grey.lighten-2
+    div.row
+        div.col.s12.m5.l4.white-text#left-nav
+            block leftNav
+        div.col.s12.m7.l8.grey.lighten-4#right-content
+            div.col.s12
+                block header
+            div.col.s12
+                block content
+            footer.col.s12
+                block footer
+    block beforeFootScript
+    script(type='text/javascript', src='/bower_components/jquery/dist/jquery.min.js')
+    script(type='text/javascript', src='/bower_components/materialize/dist/js/materialize.min.js')
+    script(type='text/javascript', src='/bower_components/tinymce/tinymce.min.js')
+    script(type='text/javascript', src='/bower_components/angular/angular.min.js')
+    script(type='text/javascript', src='/bower_components/angular-ui-tinymce/src/tinymce.js')
+    script(type='text/javascript', src='/bower_components/a0-angular-storage/dist/angular-storage.min.js')
+    script(type='text/javascript', src='/javascripts/config.js')
+    script(type='text/javascript', src='/javascripts/utilities.js')
+    script(type='text/javascript', src='/javascripts/directives.js')
+    script(type='text/javascript', src='/javascripts/services.js')
+    script(type='text/javascript', src='/javascripts/main.js')
+    script(type='text/javascript', src='/javascripts/app.js')
+    block afterFootScript
+    

@@ -1,0 +1,73 @@
+﻿<h3>{{'Templates'|titlecase}}</h3>
+
+<!--<div class="row">
+    <div class="input-field col s12 m4">
+        <select ng-model="$parent.show_c" ng-change="log_this()" multiple ng-options=" {key:key} as key  for (key , value) in  roles[0]">
+        </select>
+        <label>Choose Columns to display</label>
+    </div>
+    <span ng-init="$parent.init_select()"></span>
+</div>-->
+<script type="text/ng-template" id="object-renderer.html">
+        <span ng-if="!isCollection(value)" ng-cloak> {{value}}</span>
+        <span ng-if="isCollection(value) "  class="chip blue-text" ng-cloak>  {{key}} 
+                        <i ng-if="isCollection(value) " class="purple-text">(Object)</i>
+            </span>
+            <span  ng-if="isCollection(value)" ng-repeat="(key , value) in  value" class="chip"  ng-include="'object-renderer.html'">
+                <span class="blue-text" ng-cloak> {{value}}:</span>
+            </span>
+            
+</script>
+
+
+<select-columns collection="items" enforced-columns="e_columns" restricted-columns="r_columns" selected-columns="s_columns"
+                ng-init=""></select-columns>
+<table class="bordered highlight striped">
+    <thead>
+        <tr>
+            <th data-field="id">
+                
+                <input type="checkbox" ng-change="toggleSelectAll()" ng-model="select_all" id="check_all_users" />
+                <label for="check_all_users"></label>
+            </th>
+            <th   ng-repeat="(key , value) in  items[0]" 
+              ng-if="s_columns[key]">{{key|titlecase|noUnderscore:' '}}</th>
+            <!--<th data-field="id" ng-if="show_id">ID</th>
+            <th data-field="name">Name</th>
+            <th data-field="perms">Permissions</th>-->
+            <th >Edit</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr ng-repeat="item in items">
+            <td>
+                <input ng-model="item.selected" type="checkbox" id="check[{{item.id}}]" />
+                <label for="check[{{item.id}}]"></label>
+            </td>
+            <td  ng-if="s_columns[key]"  ng-repeat="(key , value) in  item" ng-include="'object-renderer.html'">
+           
+               <!-- <div ng-if="isCollection(val)" ng-repeat="(ky , val) in  value" class="chip">-->
+                    <!--<span class="blue-text" ng-cloak> {{ky}}:</span> 
+                     <span ng-if="!isCollection(val)" ng-cloak> {{val}}</span> 
+                    <span ng-if="isCollection(val)" ng-repeat="(k , v) in  val" class="purple-text">
+                        {{v}}
+                      
+                    </span>-->
+               <!-- </div>-->
+                <!--<span ng-if="!isCollection(value)" ng-cloak> {{value}}</span>--> 
+            </td>
+            
+            <td>
+                <a href="#/templates/{{item.id}}" class="btn cyan waves-effect waves-light">
+                    <i class="material-icons">edit</i>
+                </a>
+            </td>
+        </tr>
+       
+    </tbody>
+</table>
+<div class=""></div>
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+    <a class="btn-floating btn-large waves-effect waves-light  pink" href="#/create/{{item_name}}"><i class="material-icons">add</i></a>
+</div>

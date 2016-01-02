@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<!-- Based on HTML5 Bones | http://html5bones.com -->
+
+<html lang="en" ng-app="MyApp" ng-controller="AppCtrl">
+<head>
+    <meta charset="utf-8">
+
+    <title>User Management Interface - TopeySoft Computers</title>
+
+    <meta name="description" content="">
+
+    <!-- Mobile-friendly viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=1">
+
+    <!--<link href="//fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">-->
+    <!-- Style sheet link -->
+    <link href="/css/fonts.css" rel="stylesheet" media="all">
+    <link href="/bower_components/materialize/dist/css/materialize.min.css" rel="stylesheet" media="all">
+    <link href="/css/main.css" rel="stylesheet" media="all">
+    
+</head>
+<body class="grey lighten-4" detect-mobile>
+    <div class="fuzzy">
+       
+        <ng-include src="'/templates/header.html'"></ng-include>
+        <main role="main">
+            
+        <ng-view></ng-view>
+            
+           
+            <ng-include src="'/templates/footer.html'"></ng-include>
+        </main><!-- End primary page content -->
+        <ng-include src="'/templates/aside.html'"></ng-include>
+    </div>
+    <login-view></login-view>   <!-- <fuzzy-modal handle="login_modal" auto-show="false" dismissible="true" src="/templates/login-view.html" selector=".fuzzy"></fuzzy-modal>-->
+    <!--  <fuzzy-modal handle="loader_modal" auto-show="true" dismissible="true" src="/templates/loader.html" selector=".fuzzy"></fuzzy-modal>-->
+
+    <script src="/js/jquery-1.11.2.min.js" type="text/javascript"></script>
+    <script src="/bower_components/materialize/dist/js/materialize.min.js" type="text/javascript"></script>
+
+    <script src="/bower_components/angular/angular.js" type="text/javascript"></script>
+    <script src="/bower_components/angular-route/angular-route.js" type="text/javascript"></script>
+    <script src="/bower_components/a0-angular-storage/dist/angular-storage.js" type="text/javascript"></script>
+    <script src="/bower_components/vague.js/vague.js" type="text/javascript"></script>
+    <script src="/js/config.js" type="text/javascript"></script>
+    <script src="/js/directives.js" type="text/javascript"></script>
+    <script src="/js/utilities.js" type="text/javascript"></script>
+    <script src="/js/controllers.js" type="text/javascript"></script>
+    <script src="/js/services.js" type="text/javascript"></script>
+    <script src="/js/filters.js" type="text/javascript"></script>
+    <script src="/js/main.js" type="text/javascript"></script>
+</body>
+</html>

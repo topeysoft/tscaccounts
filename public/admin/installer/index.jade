@@ -1,0 +1,220 @@
+extends layout
+   
+ 
+block beforeHeadStyle
+    -
+        var menus ={ welcome:{text:"Welcome", href:"#welcome", active:true },
+                app_info:{text:"App Info Setup", href:"#app_info" },
+                //layout:{text:"Themes and Layout Config", href:"#layout" },
+                //usermanagement:{text:"User Management", href:"#usermanagement"},
+                admin:{text:"Grand Admin", href:"#admin"},
+                //permissions:{text:"Permissions Setup", href:"#permissions"},
+                //roles:{text:"Roles Setup", href:"#roles" },
+                installing:{text:"Performing Installation", href:"#installing", enabled:false }, 
+                finished:{text:"Finished", href:"#finished", enabled:false }
+                };
+    link(rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css")
+block leftNav
+    mixin menuItem(item)
+        li
+            
+    ul.stages
+        li(data-ng-repeat="item in steps" class="{{item.active?'active':''}}")
+           a(href="{{item.href}}" data-ng-disabled="!item.enabled") {{item.text}}
+        
+block header
+      
+block content
+    div.steps#welcome
+        h1.thin.center-align Welcome to TopeySoft User Management Installation Wizard
+        h1.thin.center-align 
+            i.fa.fa-magic
+        p.flow-text This wizard will walk you through a step-by-step installation and configuration of your new website or blog, well you'll decide here in a minute.
+        p.center-align
+            a(href="#app_info").btn.blue-grey.waves-effect.waves-light Shall we begin 
+                i.fa.fa-magic
+    div.steps#app_info
+        h3.thin.center-align Application Configuration
+        //h1.thin.center-align 
+            i.fa.fa-magic
+        //div.col.s12.m12
+            div.input-label.col.s12.m3.right-align.flow-text App Type:
+            div.col.s10.push-s1.m5.left-align
+                select(data-ng-model="config.app.type" data-ng-options="item.text for item in site_types track by item.type").z-depth-1.browser-default.input-field.padded-input.widen-input
+            span.input-prompt.col.s10.push-s1.m4 {{config.app.type.prompt}}
+        div.col.s12.m13
+            div.input-label.col.s12.m3.right-align.flow-text {{config.app_info.type.text}} Title:
+            div.col.s10.push-s1.m5
+                input(data-ng-model="config.app_info.title").input-field.padded-input.widen-input 
+            span.input-prompt.col.s10.push-s1.m4 
+        
+        //div.col.s12.m12
+            div.input-label.col.s12.m3.right-align.flow-text SEO Indexing:
+            div.col.s10.push-s1.m5
+               div.switch
+                   label Off
+                      input(type="checkbox" data-ng-model="config.app_info.allow_indexing.value")
+                      span.lever
+                      | On
+            span.input-prompt.col.s10.push-s1.m4 {{config.app.allow_indexing.prompt}}
+        //p(data-ng-init="config.app.type=site_types[0]")
+        div.row
+            div.col.s6.left-align
+                a(href="#welcome").btn.blue-grey.waves-effect.waves-light
+                    i.fa.fa-chevron-left
+                    |  Back
+            div.col.s6.right-align
+                a(href="#admin").btn.blue.waves-effect.waves-light 
+                    | Next
+                    i.fa.fa-chevron-right
+    //div.steps#layout
+        h3.thin.center-align Themes and Layout Setup
+        h1.thin.center-align 
+            i.fa.fa-layout
+        p.flow-text This step will be used to configure themes and layout
+           
+        div.row
+            div.col.s6.left-align
+                a(href="#site").btn.blue-grey.waves-effect.waves-light
+                    i.fa.fa-chevron-left
+                    |  Back
+            div.col.s6.right-align
+                a(href="#admin").btn.blue.waves-effect.waves-light 
+                    | Next
+                    i.fa.fa-chevron-right
+    //div.steps#usermanagement
+        h3.thin.center-align User Management Setup
+        h1.thin.center-align 
+            i.fa.fa-layout
+        p.flow-text This step will be used to configure user management service. Please download and install our User Management App 
+            a(href="#usermanagement") here 
+            | if you have not already done so.
+        
+        div.col.s12.m12
+            div.input-label.col.s12.m3.right-align.flow-text Base URL:
+            div.col.s10.push-s1.m5.left-align
+                input(data-ng-model="config.userman.base_url" type="url" placeholder="Ex: https://accounts.example.com").input-field.padded-input.widen-input
+            span.input-prompt.col.s10.push-s1.m4 {{config.admin.userman.base_url}}
+        div.row
+            div.col.s6.left-align
+                a(href="#site").btn.blue-grey.waves-effect.waves-light
+                    i.fa.fa-chevron-left
+                    |  Back
+            div.col.s6.right-align
+                a(href="#admin").btn.blue.waves-effect.waves-light 
+                    | Next
+                    i.fa.fa-chevron-right
+    div.steps#admin
+        h3.thin.center-align Default User Setup
+        h1.thin.center-align 
+            i.fa.fa-layout
+        p.flow-text This step will be used to configure admin 
+        div.col.s12.m12
+            div.input-label.col.s12.m3.right-align.flow-text First Name:
+            div.col.s10.push-s1.m5.left-align
+                input(data-ng-model="config.admin.first_name" type="text" placeholder="First Name:").input-field.padded-input.widen-input
+            span.input-prompt.col.s10.push-s1.m4 {{config.admin.first_name.prompt}}
+
+        div.col.s12.m12
+            div.input-label.col.s12.m3.right-align.flow-text Last Name:
+            div.col.s10.push-s1.m5.left-align
+                input(data-ng-model="config.admin.last_name" type="text"  placeholder="Last Name:").input-field.padded-input.widen-input
+            span.input-prompt.col.s10.push-s1.m4 {{config.admin.last_name.prompt}}
+
+        div.col.s12.m12
+            div.input-label.col.s12.m3.right-align.flow-text Email:
+            div.col.s10.push-s1.m5.left-align
+                input(data-ng-model="config.admin.email" type="email"  placeholder="Email:").input-field.padded-input.widen-input
+            span.input-prompt.col.s10.push-s1.m4 {{config.admin.email.prompt}}
+
+        div.col.s12.m12
+            div.input-label.col.s12.m3.right-align.flow-text Password:
+            div.col.s10.push-s1.m5.left-align
+                input(data-ng-model="config.admin.password" type="password"  placeholder="Secure Password").input-field.padded-input.widen-input
+            span.input-prompt.col.s10.push-s1.m4 {{config.admin.email.prompt}}
+
+        //div.col.s12.m12
+            div.input-label.col.s12.m3.right-align.flow-text Role:
+            div.col.s10.push-s1.m5.left-align
+                select(data-ng-model="config.admin.role" data-ng-options="item.name for item in config.roles track by item.name").z-depth-1.browser-default.input-field.padded-input.widen-input
+            span.input-prompt.col.s10.push-s1.m4 {{config.site.site_type.prompt}}
+        p(data-ng-init="config.admin.role=config.roles[3]")
+        div.row
+            div.col.s6.left-align
+                a(href="#layout").btn.blue-grey.waves-effect.waves-light
+                    i.fa.fa-chevron-left
+                    |  Back
+            div.col.s6.right-align
+                a( data-ng-click="perfomInstall()").btn.blue.waves-effect.waves-light 
+                    | Perform Installation 
+                    i.fa.fa-bolt
+    //div.steps#permissions
+        h3.thin.center-align Permissions Setup
+        h1.thin.center-align 
+            i.fa.fa-layout
+        p.flow-text This step will be used to configure themes and layout
+        table.bordered
+            tr
+                th Permission
+                th Description
+                th Default?
+                th Action
+            tr(data-ng-repeat="perm in config.permissions")
+                td {{perm.name}}
+                td {{perm.description}}
+                td {{perm.is_default}}
+                td 
+                    a.btn-flat.blue-text.waves-effect.waves-blue(data-ng-click="editPermission(perm)") 
+                        i.fa.fa-pencil
+                    a.btn-flat.red-text.waves-effect.waves-red(data-ng-click="deletePermission(perm)")
+                        i.fa.fa-trash
+        p  &nbsp;
+        div.col.s12.right-align
+            a.btn.green.btn-floating +
+        p &nbsp;
+        div.row
+            div.col.s6.left-align
+                a(href="#admin").btn.blue-grey.waves-effect.waves-light
+                    i.fa.fa-chevron-left
+                    |  Back
+            div.col.s6.right-align
+                a(href="#roles").btn.blue.waves-effect.waves-light 
+                    | Next
+                    i.fa.fa-chevron-right
+    //div.steps#roles
+        h3.thin.center-align User Roles Setup
+        h1.thin.center-align 
+            i.fa.fa-layout
+        p.flow-text This stepwill be used to configure themes and layout
+        table.bordered
+            tr
+                th Role
+                th Permissions
+                th Default?
+                th Action
+            tr(data-ng-repeat="role in config.roles")
+                td {{role.name}}
+                td
+                    span.chip(data-ng-repeat="p in role.permissions") {{p.name}}
+                td {{role.is_default}}
+                td 
+                    a.btn-flat.blue-text.waves-effect.waves-blue(data-ng-click="editRole(role)") 
+                        i.fa.fa-pencil
+                    a.btn-flat.red-text.waves-effect.waves-red(data-ng-click="deleteRole(role)")
+                        i.fa.fa-trash
+        p  &nbsp;
+        div.col.s12.right-align
+            a.btn.green.btn-floating +
+        p &nbsp;
+        div.row
+            div.col.s6.left-align
+                a(href="#permissions").btn.blue-grey.waves-effect.waves-light
+                    i.fa.fa-chevron-left
+                    |  Back
+            div.col.s6.right-align
+                a( data-ng-click="perfomInstall()").btn.blue.waves-effect.waves-light 
+                    | Perform Installation 
+                    i.fa.fa-bolt
+block beforeFootScript
+    script(type="text/javascript").
+        var steps = !{JSON.stringify(menus)};

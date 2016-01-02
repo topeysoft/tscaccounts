@@ -1,0 +1,58 @@
+﻿<div>
+    <a class="btn-floating right cyan tooltipped" ng-click="new_field=field; showAddProperty()" data-position="bottom" data-delay="50" data-tooltip="Edit this field"><i class="material-icons">{{isEdit?'edit':'playlist_add'}}</i></a>
+    <div id="new_template_prop" class="modal modal-fixed-footer new_template_prop">
+        <div class="modal-content">
+            <h4>{{isEdit?'Edit':'Add'}} Property</h4>
+            <table>
+                <tbody>
+                    <tr>
+
+                        <th>{{'Name'|uppercase}}</th>
+                        <td>
+                            <div class="input-field col s6">
+                                <input id="temp_name" valid-name ng-model="new_field.name" type="text" class="validate">
+                                <label for="temp_name">Name</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+
+                        <th>{{'Type'|uppercase}}</th>
+                        <td>
+                            <div class="input-field col s6">
+                                <select id="temp_type" ng-model="new_field.type" ng-options="i as  i.name for  i in $parent.field_types"></select>
+                                <label for="temp_type">Type</label>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+
+                        <th>{{'Required'|uppercase}}</th>
+                        <td>
+                            <div class="input-field col s6">
+                                <input id="temp_required" type="checkbox" ng-model="new_field.required">
+                                <label for="temp_required">Required</label>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+
+                        <th>{{'Default'|uppercase}}</th>
+                        <td>
+                            <div class="input-field col s6">
+                                <input id="name" type="text" ng-model="new_field.default">
+                                <label for="name">Default value</label>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="modal-footer" ng-init="$parent.init_select()">
+            <a class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click="done()">{{isEdit?'Done':'Add'}} </a>
+            <a class=" modal-action modal-close waves-effect waves-red btn-flat">Cancel</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+﻿ <div>
+    <!-- Modal Trigger -->
+    <a class="waves-effect waves-light btn pink modal-trigger" ng-click="showSelectColumnDialog()">Select columns</a>
+
+    <!-- Modal Structure -->
+    <div id="show_c_dialog" class="modal">
+        <div class="modal-content">
+            <h4>Select Columns to Display</h4>
+            <p ng-repeat="(key, value) in collection[0]" ng-if="!restricted[key]">
+                <input  type="checkbox" ng-disabled="disabled[key]"  ng-checked="disabled[key]" ng-model="selectedColumns[key]" class="filled-in" id="filled-in-box[{{key}}]" />
+                <label for="filled-in-box[{{key}}]">{{key}}</label>
+            </p>
+        </div>
+        <div class="modal-footer">
+            <a class=" modal-action modal-close waves-effect waves-light btn pink">Done</a>
+        </div>
+    </div>
+     
+     <hr />
+</div>

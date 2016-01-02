@@ -1,0 +1,30 @@
+﻿<h3>{{item_name|titlecase}}:
+    <span class="flow-text ng-cloak">
+        ({{item.name}})
+    </span></h3>
+
+<ng-include src="'/templates/partials/create-edit-item.html'"></ng-include>
+<!--<div style="padding:10px;">
+    <table class="bordered highlight striped">
+     
+
+        <tbody>
+            <tr ng-if="key!='id'" ng-repeat="(key, value) in item">
+              
+                <th>{{key | uppercase|noUnderscore:' '}}</th>
+                <td ng-if="key!='role'"><input class="{{editableText}}" type="text" ng-model="user[key]" /></td>
+                <td ng-if="key=='role'"><select  class="{{editableText}}" type="text" ng-model="user[key]" prop-to-display="text"  ng-options="item as item.text for item in  roles track by item.text"></select></td>
+
+
+            </tr>
+
+        </tbody>
+    </table>
+
+    <div>
+        <a ng-click="saveChanges()" class="btn magenta waves-effect waves-light {{(!is_modified) || saving_changes?'disabled':''}}">
+            <i class="material-icons">save</i> Save
+        </a>
+        <inline-loader class="{{saving_changes?'':'hide'}}" for-all="false" size="small" style="padding-top:5px; position:relative; float:left;"></inline-loader>
+    </div>
+</div>-->

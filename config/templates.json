@@ -1,0 +1,88 @@
+﻿[
+  {
+    "id": 1,
+    "name": "users",
+    "content": {
+      "email": {
+        "type": "email",
+        "required": true
+      },
+      "password": {
+        "type": "password",
+        "required": true
+      },
+      "first_name": {
+        "type": "text",
+        "required": false
+      },
+      "last_name": {
+        "type": "text",
+        "required": false
+      },
+      "role": {
+        "type": [ "roles" ],
+        "required": true
+      }
+    }
+  },
+  {
+    "id": 2,
+    "name": "roles",
+    "content": {
+      "name": {
+        "type": "text",
+        "required": true
+      },
+      "description": {
+        "type": "text",
+        "required": false
+      },
+      "permissions": {
+        "type": [ "permissions" ],
+        "required": true
+      }
+    }
+  },
+  {
+    "id": 3,
+    "name": "permissions",
+    "content": {
+      "name": {
+        "type": "text",
+        "required": true
+      },
+      "description": {
+        "type": "text",
+        "required": false
+      },
+      "permissions": {
+        "type": [ "permissions" ],
+        "required": true
+      }
+    }
+  },
+
+  {
+    "id": 4,
+    "name": "templates",
+    "content": {
+      "name": {
+        "type": "text",
+        "required": true,
+        "may_change": false,
+        "may_delete": false
+      },
+      "content": {
+        "type": "text",
+        "required": true,
+        "may_change": false,
+        "may_delete": false
+      },
+      "description": {
+        "type": [ "text" ],
+        "required": false
+      }
+      
+    }
+  }
+]

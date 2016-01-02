@@ -1,0 +1,23 @@
+{
+    "mailer_config": {
+        "from": "TopeySoft Computers <no-reply@topeysoft.com>",
+        "host": "smtp.gmail.com", 
+        "secureConnection": true, 
+        "port": 465, 
+        "transportMethod": "SMTP", 
+        "auth": {
+            "user": "topeysoft.apps@gmail.com",
+        "pass": "tinbed123"
+      }
+    },
+    "jwt_options": {
+        "algorithm": "HS256",
+	    "expiresIn": 3600,
+	    "audience": "",
+	    "subject": "TSC JWT",
+	    "issuer": "TopeySoft Computers",
+	    "noTimestamp": false,
+	    "headers": {}
+},
+"jwt_private_key": "tscd6F3Efeqtsc"
+}

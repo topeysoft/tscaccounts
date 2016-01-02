@@ -1,0 +1,76 @@
+[
+    
+    {
+      "name": "VIEW_CONTENT",
+      "description": "A read-only permission that allows a user to view content",
+      "is_default": true
+    },
+    {
+      "name": "VIEW_USERS",
+      "description": "A read-only permission that allows a user to view a list of users"
+    },
+    {
+      "name": "CREATE_CONTENT",
+      "description": "Permission that allows a user to create content"
+    },
+    {
+      "name": "PUBLISH_CONTENT",
+      "description": "Permission that allows a user to publish"
+    },
+    {
+      "name": "DELETE_CONTENT",
+      "description": "Permission that allows a user to delete content"
+    },
+    {
+      "name": "UPLOAD_FILES",
+      "description": "Permission that allows a user to upload files"
+    },
+    {
+      "name": "DELETE_FILES",
+      "description": "Permission that allows a user to delete files"
+    },
+    {
+      "name": "MODIFY_CONTENT",
+      "description": "Permission that allows a user to view and modify application content"
+    },
+    {
+      "name": "MODIFY_LAYOUT",
+      "description": "Permission that allows a user to view and modify application layout"
+    },
+    {
+      "name": "CREATE_USERS",
+      "description": "Permission that allows a user to create users"
+    },
+    {
+      "name": "MODIFY_USERS",
+      "description": "Permission that allows a user to view and modify application users"
+    },
+    {
+      "name": "DELETE_USERS",
+      "description": "Permission that allows a user to delete registered users"
+    },
+    {
+      "name": "MANAGE_CONTENT",
+      "description": "Special permission that allows a user to manage content. This include create, modify and delete."
+    },
+    {
+      "name": "MANAGE_USERS",
+      "description": "Special permission that allows a user to manage users. This include create, modify and delete."
+    },
+    {
+      "name": "MANAGE_FILES",
+      "description": "Special permission that allows a user to manage files. This include create, modify and delete."
+    },
+    {
+      "name": "MANAGE_ROLES",
+      "description": "Special permission that allows a user to manage permissions. This include create, modify and delete."
+    },
+    {
+      "name": "MANAGE_PERMISSIONS",
+      "description": "Special permission that allows a user to manage permissions. This include create, modify and delete."
+    },
+    {
+      "name": "MANAGE_APPLICATION",
+      "description": "Super permission can override all other permisions. This should only be assigned to super user roles"
+    }
+  ]

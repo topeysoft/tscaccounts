@@ -1,0 +1,35 @@
+﻿<aside role="complementary" class="left-menu z-depth-1 blue-grey darken-2 white-text side-nav">
+    <div class="row user-div clearfix blue-grey darken-3">
+
+        <!--<img src="images/yuna.jpg" alt="" class="circle">-->
+        <div class="col s3">
+            <div class=" left circle green profile-pix">{{(current_user.first_name?current_user.first_name:current_user.email) | initial}}</div>
+        </div>
+        <div>
+            <div class="col s9">
+                <div class=" flow-text  flow-text-small user-text">
+                    <span class="truncate" style="font-weight:bold;">
+                        {{(current_user.first_name?((current_user.first_name + ' ' + current_user.last_name )| titlecase ):current_user.email)}}
+                    </span>
+                    <span class="flow-text flow-text-smaller truncate">
+                        {{current_user.role.name}}
+                    </span>
+                    <a href="" class="secondary-content white-text" ng-click="logOut()"><i class="material-icons">lock</i>Log out</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div>
+        <ul class="side-nav-links ">
+            <li class="waves-effect waves-block waves-teal"  ng-repeat="item in left_menu_items" ng-click="toggleLeftMenu()">
+
+                <a href="{{item.url}}"><i class="circle-menu-icon material-icons">{{item.icon}}</i> <span>{{item.text}}</span> </a>
+            </li>
+           
+
+        </ul>
+    </div>
+
+</aside>
+<div class="menu-backdrop" ng-click="toggleLeftMenu()"></div>

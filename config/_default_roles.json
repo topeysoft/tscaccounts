@@ -1,0 +1,65 @@
+[
+    {
+      "name": "GUEST",
+      "description": "A read-only permission that allows a user to view content",
+      "is_default": true,
+      "permissions": { }
+    },
+    {
+      "name": "SUBSCRIBER",
+      "description": "A read-only permission that allows a user to view a list of users",
+      "permissions": [
+        {
+          "name": "VIEW_CONTENT",
+          "description": "A read-only permission that allows a user to view content",
+          "is_default": true
+        }
+      ]
+    },
+    {
+      "name": "CONTENT EDITOR",
+      "description": "Permission that allows a user to create content",
+      "permissions": [
+        {
+          "name": "MANAGE_CONTENT",
+          "description": "Special permission that allows a user to manage content. This include create, modify and delete."
+        }
+      ]
+    },
+    {
+      "name": "ADMINISTRATOR",
+      "description": "Permission that allows a user to publish",
+      "permissions": [
+        {
+          "name": "MANAGE_CONTENT",
+          "description": "Special permission that allows a user to manage content. This include create, modify and delete."
+        },
+        {
+          "name": "MANAGE_USERS",
+          "description": "Special permission that allows a user to manage users. This include create, modify and delete."
+        },
+        {
+          "name": "MANAGE_FILES",
+          "description": "Special permission that allows a user to manage files. This include create, modify and delete."
+        },
+        {
+          "name": "MANAGE_ROLES",
+          "description": "Special permission that allows a user to manage permissions. This include create, modify and delete."
+        },
+        {
+          "name": "MANAGE_PERMISSIONS",
+          "description": "Special permission that allows a user to manage permissions. This include create, modify and delete."
+        }
+      ]
+    },
+    {
+      "name": "SUPER_USER",
+      "description": "Permission that allows a user to delete content",
+      "permissions": [
+        {
+          "name": "MANAGE_APPLICATION",
+          "description": "Super permission can override all other permisions. This should only be assigned to super user roles"
+        }
+      ]
+    }
+  ]

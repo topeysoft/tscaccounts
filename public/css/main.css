@@ -1,0 +1,454 @@
+/*================================================================================
+	Item Name: TSC User Management Admin
+	Version: 2.1
+	Author: Temitope Adeyeri
+	Author URL: 
+================================================================================*/
+/*-----------------------------------------
+
+------------------------------------------*/
+/*=================================================================================
+    General
+====================================================================================*/
+/*----------------------------------------
+  General Layout Style
+------------------------------------------*/
+body {
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+
+}
+
+body header.main-header {
+    height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-left: 240px;
+    width: 100vw;
+    box-sizing: border-box;
+    z-index: 1000;
+
+    
+    -webkit-transition: all 200ms ease-out;
+    -moz-transition: all 200ms ease-out;
+    -o-transition: all 200ms ease-out;
+    transition: all 200ms ease-out;
+}
+
+
+body.is-mobile header.main-header {
+    padding-left: 0px;
+}
+
+
+body main {
+    padding: 5px;
+    padding-top: 60px;
+    min-height: 100vh;
+    margin-left: 240px;
+    min-height: 100vh;
+    box-sizing: border-box;
+    position: relative;
+    padding-bottom: 60px;
+
+    -webkit-transition: all 200ms ease-out;
+    -moz-transition: all 200ms ease-out;
+    -o-transition: all 200ms ease-out;
+    transition: all 200ms ease-out;
+}
+
+body.is-mobile main {
+    margin-left: 0px;
+}
+
+body aside.left-menu {
+    position: fixed;
+    left: 0;
+    top: 0px;
+    padding-bottom: 60px;
+    width: 240px;
+    height: 100vh;
+    box-sizing: border-box;
+    z-index: 1001;
+
+    
+    -webkit-transition: all 200ms ease-out;
+    -moz-transition: all 200ms ease-out;
+    -o-transition: all 200ms ease-out;
+    transition: all 200ms ease-out;
+}
+
+body.is-mobile aside.left-menu {
+    left: -240px;
+}
+
+body.is-mobile.show-left-menu aside.left-menu {
+    left:0px;
+}
+
+body .menu-backdrop{
+    display:none;
+    position:fixed;
+    left:-5vw;
+    top:-5vh;
+    height:110vh;
+    width:110vw;
+    background-color:rgba(7, 89, 89, 0.30);
+    z-index: 1000;
+
+    -webkit-transition: background 200ms ease-out;
+    -moz-transition: background 200ms ease-out;
+    -o-transition: background 200ms ease-out;
+    transition: background 200ms ease-out;
+}
+
+body.is-mobile.show-left-menu .menu-backdrop{
+    display:block;
+}
+
+body aside.left-menu ul.side-nav-links {
+    padding: 0;
+    margin: 0;
+}
+
+aside.left-menu ul.side-nav-links li a {
+    color: cyan;
+}
+
+aside.left-menu ul.side-nav-links li .material-icons {
+    bottom: -5px;
+    margin-right: 15px;
+    position: relative;
+}
+
+aside.left-menu ul.side-nav-links li:hover a {
+    color: #000000;
+}
+
+aside.left-menu ul.side-nav-links li:hover {
+    background-color: cyan;
+}
+
+footer.main-footer {
+    position: absolute;
+    height: 64px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.header-search-wrapper {
+    position: relative;
+}
+
+    .header-search-wrapper input[type=search] {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.20);
+        border: none;
+        border-radius: 2px;
+        height: auto;
+        padding: 10px 15px;
+        margin-top: 10px;
+        box-sizing: border-box;
+        padding-left: 50px;
+    }
+
+    .header-search-wrapper .search-icon {
+        font-size: 150%;
+        position: absolute;
+        left: 25px;
+        top: 17px;
+    }
+
+    .header-search-wrapper input[type=search]:focus {
+        background: #ffffff;
+        border: none !important;
+    }
+
+
+
+.flow-text-small {
+    font-size: 1em;
+}
+
+.flow-text-smaller {
+    font-size: .9em;
+}
+
+.login-view-bg, .blurred-dialog {
+    width: 110vw;
+    height: 110vh;
+    top: -5vh;
+    left: -5vw;
+    position: fixed;
+    background: rgba(19, 33, 41, 0.70);
+    z-index: 2000;
+    overflow: hidden;
+}
+
+
+body .login-view {
+    width: 400px;
+    height: 370px;
+    top: 50%;
+    left: 50%;
+    margin-left: -200px;
+    margin-top: -185px;
+    position: fixed;
+    background: #ffffff;
+    z-index: 2000;
+    border: 10px solid #aaaaaa;
+    border-radius: 4px;
+}
+
+body.is-mobile .login-view {
+    width: 340px;
+    height: 370px;
+    top: 50%;
+    left: 50%;
+    margin-left: -170px;
+    margin-top: -185px;
+    position: fixed;
+    background: #ffffff;
+    z-index: 2000;
+    border: 10px solid #aaaaaa;
+    border-radius: 4px;
+}
+
+#toast-container {
+    z-index: 5000;
+}
+
+/*----------------------------------------
+    Pre Loader
+------------------------------------------*/
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+#loader {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #3498db;
+    -webkit-animation: spin 2s linear infinite;
+    /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 2s linear infinite;
+    /* Chrome, Firefox 16+, IE 10+, Opera */
+    z-index: 1001;
+}
+    /*#loader-logo {
+  display: block;
+  position: absolute;
+  left: 48%;
+  top: 46%;
+  background: url(../images/user-bg-2.jpg) no-repeat center center;  
+  z-index: 1001;
+}*/
+    #loader:before {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        right: 5px;
+        bottom: 5px;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: #e74c3c;
+        -webkit-animation: spin 3s linear infinite;
+        /* Chrome, Opera 15+, Safari 5+ */
+        animation: spin 3s linear infinite;
+        /* Chrome, Firefox 16+, IE 10+, Opera */
+    }
+
+    #loader:after {
+        content: "";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: #f9c922;
+        -webkit-animation: spin 1.5s linear infinite;
+        /* Chrome, Opera 15+, Safari 5+ */
+        animation: spin 1.5s linear infinite;
+        /* Chrome, Firefox 16+, IE 10+, Opera */
+    }
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);
+        /* IE 9 */
+        transform: rotate(0deg);
+        /* Firefox 16+, IE 10+, Opera */
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg);
+        /* IE 9 */
+        transform: rotate(360deg);
+        /* Firefox 16+, IE 10+, Opera */
+    }
+}
+
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);
+        /* IE 9 */
+        transform: rotate(0deg);
+        /* Firefox 16+, IE 10+, Opera */
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg);
+        /* IE 9 */
+        transform: rotate(360deg);
+        /* Firefox 16+, IE 10+, Opera */
+    }
+}
+
+#loader-wrapper .loader-section {
+    position: fixed;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: rgba(8, 25, 36, 0.70);
+    z-index: 1000;
+    -webkit-transform: translateX(0);
+    /* Chrome, Opera 15+, Safari 3.1+ */
+    -ms-transform: translateX(0);
+    /* IE 9 */
+    transform: translateX(0);
+    /* Firefox 16+, IE 10+, Opera */
+}
+
+    #loader-wrapper .loader-section.section-left {
+        left: 0;
+    }
+
+    #loader-wrapper .loader-section.section-right {
+        right: 0;
+    }
+/* Loaded */
+
+.loaded #loader-wrapper .loader-section.section-left {
+    -webkit-transform: translateX(-100%);
+    /* Chrome, Opera 15+, Safari 3.1+ */
+    -ms-transform: translateX(-100%);
+    /* IE 9 */
+    transform: translateX(-100%);
+    /* Firefox 16+, IE 10+, Opera */
+    -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+
+.loaded #loader-wrapper .loader-section.section-right {
+    -webkit-transform: translateX(100%);
+    /* Chrome, Opera 15+, Safari 3.1+ */
+    -ms-transform: translateX(100%);
+    /* IE 9 */
+    transform: translateX(100%);
+    /* Firefox 16+, IE 10+, Opera */
+    -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+
+.loaded #loader {
+    opacity: 0;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.loaded #loader-wrapper {
+    visibility: hidden;
+    -webkit-transform: translateY(-100%);
+    /* Chrome, Opera 15+, Safari 3.1+ */
+    -ms-transform: translateY(-100%);
+    /* IE 9 */
+    transform: translateY(-100%);
+    /* Firefox 16+, IE 10+, Opera */
+    -webkit-transition: all 0.3s 1s ease-out;
+    transition: all 0.3s 1s ease-out;
+}
+/* JavaScript Turned Off */
+
+.no-js #loader-wrapper {
+    display: none;
+}
+
+.user-div {
+    padding: 1em 0;
+}
+
+
+    .user-div .profile-pix {
+        font-weight: bolder;
+        font-style: normal;
+        font-size: 200%;
+        height: 50px;
+        width: 50px;
+        line-height: 50px;
+        text-align: center;
+        margin: 5px;
+    }
+
+    .user-div .flow-text {
+        line-height: 1.5em;
+    }
+
+.padded-small {
+    padding: 5px;
+}
+
+.circle-menu-icon {
+    border-radius: 50%;
+    line-height: 40px;
+    text-align: center;
+    border: 1px solid cyan;
+    height: 40px;
+    width: 40px;
+}
+
+
+
+
+
+
+
+
+#is_mobile {
+    display: none;
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+
+@media screen and (max-width: 600px) {
+    #is_mobile {
+        display: block;
+    }
+}

@@ -1,0 +1,45 @@
+﻿{
+  "roles": [
+    {
+      "id": 0,
+      "name": "Registered User"
+    },
+    {
+      "id": 1,
+      "name": "Subscriber"
+    },
+    {
+      "id": 2,
+      "name": "Moderator"
+    },
+    {
+      "id": 3,
+      "name": "Content Editor"
+    },
+    {
+      "id": 4,
+      "name": "Content Manager"
+    },
+    {
+      "id": 5,
+      "name": "User Manager"
+    },
+    {
+      "id": 6,
+      "name": "Role Manager"
+    },
+    {
+      "id": 7,
+      "name": "Application Manager"
+    },
+    {
+      "id": 8,
+      "name": "Administrator"
+    },
+    {
+      "id": 9,
+      "name": "API Supervisor"
+    }
+  ]
+}
+

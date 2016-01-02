@@ -1,0 +1,40 @@
+doctype html
+html(data-ng-app='tsccmsinstaller' data-ng-controller='AppCtrl')
+  head
+    meta(charset="utf-8")  
+    title  TSC.CMS Installation Wizard - By TopeySoft Computers
+    meta(name="description" content="")
+    //Mobile-friendly viewport
+    meta(name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=1")
+    block beforeHeadStyle
+    link(rel='stylesheet', href='/bower_components/materialize/dist/css/materialize.min.css')
+    link(rel='stylesheet', href='/admin/installer/css/main.css')
+    block afterHeadStyle
+ body.grey.lighten-2
+    div.row
+        
+            div.col.s12.m3.l3#left-nav
+                block leftNav
+            div.col.s12.m9.l9.grey.lighten-4#right-content
+                div.col.s12
+                    block header
+                div.col.s12
+                    block content
+                footer.col.s12
+                    block footer
+    block beforeFootScript
+    script(type='text/javascript', src='/bower_components/jquery/dist/jquery.min.js')
+    script(type='text/javascript', src='/bower_components/materialize/dist/js/materialize.min.js')
+    script(type='text/javascript', src='/bower_components/tinymce/tinymce.min.js')
+    script(type='text/javascript', src='/bower_components/angular/angular.min.js')
+    script(src="/bower_components/angular-route/angular-route.js" type="text/javascript")
+    script(type='text/javascript', src='/bower_components/angular-ui-tinymce/src/tinymce.js')
+    script(type='text/javascript', src='/bower_components/a0-angular-storage/dist/angular-storage.min.js')
+    script(type='text/javascript', src='/javascripts/config.js')
+    script(type='text/javascript', src='/javascripts/utilities.js')
+    script(type='text/javascript', src='/javascripts/directives.js')
+    script(type='text/javascript', src='/javascripts/services.js')
+    script(type='text/javascript', src='/admin/installer/js/main.js')
+    script(type='text/javascript', src='/admin/installer/js/app.js')
+    block afterFootScript
+    

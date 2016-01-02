@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  
+  
+  div.row(class="main"  role="main")
+   //header.col.s12(class="page-header row editable-section darken-1   black-text z-depth-0" role="banner")
+     a(href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only")
+       i(class="mdi-navigation-menu")
+   header.col.s12.m9.push-m3( class="grey lighten-4 page-header row editable-section  black-text z-depth-0")
+    div( class="" role="banner")
+     a(href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only")
+       i(class="mdi-navigation-menu")
+     h4(class="")
+          a(href="#" class="brand-logo black-text") TopeySoft CMS
+   nav.col.s12.m3(role="navigation" data-content-menu data-menu-id="565e5680f18ae4480c184336"  class=" side-nav fixed z-depth-0 grey lighten-4 back-text z-depth-0 grey lighten-4 back-text")
+         
+   main.col.s12.m9.push-m3
+          div.row
+            div.col.s12.m10
+               article
+                header
+                 h1(data-ng-model="article.title" ui-tinymce="tinymceOptions['plain']")= title
+                div(data-ng-model="article.content" ui-tinymce="tinymceOptions['rich']" )  #{content}
+            aside.col.s12.m2(role="contentinfo" data-editable-content data-content-id="565de6d5552160582a71588d" class=" flow-text grey lighten-3 black-text center-align") aside
+  footer.col.s12.m9.push-m3(role="contentinfo" data-editable-content data-content-id="565de6d5552160582a71588d" class="page-footer blue-grey darken-3 white-text center-align") footer
+  script(type='text/javascript') !{initializer}
+    

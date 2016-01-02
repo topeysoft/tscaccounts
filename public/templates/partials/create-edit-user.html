@@ -1,0 +1,43 @@
+﻿<div style="padding:10px;">
+    <div class="row">
+        <div class="col s12 m10 offset-m1">
+            <table class="bordered highlight striped">
+
+
+                <tbody>
+                    <tr ng-if="key!='id'" ng-repeat="(key, value) in user">
+
+                        <th>{{key | uppercase|noUnderscore:' '}}</th>
+                        <td ng-if="key!='role'">
+                            <div class="input-field">
+                                <input editable-text ed-text-on="editable" class="{{editable}}"  type="{{(key|lowercase)=='password'?'password':'text'}}" id="{{key}}" ng-model="user[key]" />
+                                <label  ng-if="!editable" for="{{key}}">{{key|noUnderscore:' ' | titlecase}}</label>
+                            </div>
+                        </td>
+                        <td ng-if="key=='role'">
+                            <div>
+                                <div class="input-field">
+                                    <select editable-text ed-text-on="editable" multiple ng-model="user[key]"    prop-to-display="name" ng-options=" role.name for role in  roles track by role.id"></select>
+
+                                    <label ng-if="!editable" > Select {{key|noUnderscore:' ' | titlecase}}</label>
+                                </div>
+                                <span  ng-init="$parent.init_select()"></span>
+                            </div>
+                        </td>
+
+
+                    </tr>
+
+                </tbody>
+            </table>
+
+
+            <div>
+                <button ng-click="saveChanges()" ng-disabled="(!is_modified) || saving_changes" class="btn pink waves-effect waves-light ">
+                    <i class="material-icons">save</i> {{saving_changes?'Saving changes':'Save'}}
+                </button>
+                <inline-loader class="{{saving_changes?'':'hide'}}" for-all="false" size="small" style="padding-top:5px; position:relative; float:left;"></inline-loader>
+            </div>
+        </div>
+    </div>
+</div>

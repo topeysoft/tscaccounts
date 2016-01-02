@@ -1,0 +1,1 @@
+{"type":"log","show":{"tags":false,"location":false,"time":false,"date":false},"context":{"tags":[],"file":false,"time":1447545649164,"location":{"filename":"app.js","line":24}},"args":{"0":"connection successful"},"contextString":"","argsString":"connection successful","message":"connection successful"}

@@ -1,0 +1,28 @@
+﻿
+<div class="login-view-bg">
+    <div class="login-view">
+        <form novalidate>
+            <h4 class="center-align">Please Login</h4>
+            <div class="row">
+                <div class=" col s10 offset-s1 flow-text-small center-align red-text card-panel  red lighten-5">{{login_error_message}}</div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="icon_prefix" ng-model="email" ng-focus="login_error_message=''" type="email" class="validate">
+                        <label for="icon_prefix">Email</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">lock</i>
+                        <input id="icon_lock" ng-model="password" ng-focus="login_error_message=''" type="password" class="validate">
+                        <label for="icon_lock">Password</label>
+                    </div>
+                    <div class="col s6 offset-s3 center-align">
+                        <a class="btn blue waves-effect waves-light" ng-click="login()">Log in</a>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

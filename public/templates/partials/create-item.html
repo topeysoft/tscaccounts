@@ -1,0 +1,41 @@
+﻿<div style="padding:10px;">
+    <div class="row">
+        <div class="col s12 m10 offset-m1">
+            <table class="bordered highlight striped">
+
+
+                <tbody>
+                    <tr ng-if="key!='id' && key.charAt(0)!='_'" ng-repeat="field in item_template">
+
+                        <th>{{field.name | uppercase|noUnderscore:' '}}</th>
+                        <td ng-if="(field.type.type|lowercase)!='select'" >
+                            <div class="input-field">
+                                <input class="{{editable}}" value="{{field.default}}" type="{{field.type.type}}" id="{{field.name}}" ng-model="item[field.name]" />
+                                <label   for="{{field.name}}">{{field.name|noUnderscore:' ' | titlecase}}</label>
+                            </div>
+                        </td>
+                       
+
+                        <td ng-if="(field.type.type|lowercase)=='select'">
+                            <div class="input-field">
+                                <input class="{{editable}}" value="{{field.default}}" type="{{field.type}}" id="{{field.name}}" ng-model="item[field.name]" />
+                                <label for="{{field.name}}">{{field.name|noUnderscore:' ' | titlecase}}</label>
+                            </div>
+                        </td>
+
+
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <a class="btn-floating right cyan tooltipped" data-position="bottom" data-delay="50" data-tooltip="Add field"><i class="material-icons">playlist_add</i></a>
+            <div>
+                <button ng-click="saveChanges()" ng-disabled="(!is_modified) || saving_changes" class="btn pink waves-effect waves-light ">
+                    <i class="material-icons">save</i> {{saving_changes?'Saving changes':'Save'}}
+                </button>
+                <inline-loader class="{{saving_changes?'':'hide'}}" for-all="false" size="small" style="padding-top:5px; position:relative; float:left;"></inline-loader>
+            </div>
+        </div>
+    </div>
+</div>
